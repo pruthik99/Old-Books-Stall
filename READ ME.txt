@@ -1,0 +1,5 @@
+Old Books Stall:
+Developed a website for selling old secondhand books. Use can create his profile and log in using
+credentials which will be saved in the database. Create pages like HOME, ALL BOOK, ABOUT US, etc. Users
+can also give Ratings to their order. The search bar is also available for searching books. Sessions are also
+handled. Also created a contact us form for any queries.

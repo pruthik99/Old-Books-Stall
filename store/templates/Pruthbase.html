@@ -1,0 +1,342 @@
+{% load static %}
+{% static 'image' as baseUrl %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- 155*155 -->
+
+
+<!-- Mirrored from demo.hasthemes.com/pustok-preview/pustok/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Aug 2020 16:11:48 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>old books stall</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Use Minified Plugins Version For Fast Page Load -->
+    <link rel="stylesheet" type="text/css" media="screen" href="{%static 'css/plugins.css'%}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{%static 'css/main.css'%}" />
+ 
+</head>
+
+<body>
+    <div class="site-wrapper" id="top">
+        <div class="site-header header-3  d-none d-lg-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        
+                    </div>
+
+                    {% if request.session.customer %}
+
+                    <div class="col-lg-8 flex-lg-right">
+                        <ul class="header-top-list">
+                         
+                            <li class="dropdown-trigger language-dropdown"><a href="/orders"><i
+                                        class="icons-left fas fa-heart"></i>
+                                    Orders </a>
+                            </li>
+                            <!-- <li class="dropdown-trigger language-dropdown"><a href="#"><i
+                                        class="icons-left fas fa-user"></i>
+                                    My Account</a><i class="fas fa-chevron-down dropdown-arrow"></i>
+                                <ul class="dropdown-box">
+                                    <li> <a href="#">My Account</a></li>
+                                    <li> <a href="#">My Order History</a></li>
+                                    <li> <a href="#">logout</a></li>
+                                    <li> <a href="#"></a></li>
+                                </ul>
+                            </li> -->
+                            <li><a href="cart"><i class="icons-left fas fa-share"></i> Checkout </a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endif %}
+
+            </div>
+            <div class="header-middle pt--10 pb--10">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3">
+                            <a href="#" class="site-brand">
+                                <img src="{%static 'img/flogo.png'%}" id="picsize" alt="">
+                            </a>
+                        </div>
+
+
+
+                        <form  method="get" action="/search" class="col-lg-5">
+                            <div class="header-search-block">
+                                <input type="text" placeholder="Search entire store here" name="pruth" id="pruth">
+                                <button type="submit">Search</button>
+                             
+                            </div>
+                        </form>
+
+
+
+                        <div class="col-lg-4">
+                            <div class="main-navigation flex-lg-right">
+                                <div class="cart-widget">
+
+
+                                    {% if request.session.customer %}
+                                    <div class="login-block">
+                            
+                                        <a href="/logout" class="font-weight-bold">Logout</a>
+
+                                    </div>
+
+                                    {% else %}
+                                    <div class="login-block">
+                                        <a href="/login" class="font-weight-bold">Login</a> <br>
+                                        <span>or</span><a href="/signup">Register</a>
+                                    </div>
+
+
+                                    {% endif %}
+
+
+
+
+                                    <!-- Cart -->
+
+
+                                    <div class="cart-block">
+                                        <div class="cart-total">
+                                            <span class="text-number">
+                                                {{request.session.cart.keys|length}}
+                                            </span>
+                                            <a href="/cart" class="text-item">
+                                                Cart
+                                            </span> </a>
+                                        
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3">
+                            <nav class="category-nav   ">
+                                <div>
+                                    <a href="javascript:void(0)" class="category-trigger"><i
+                                            class="fa fa-bars"></i>Books
+                                        categories</a>
+                                    <ul class="category-menu">
+                                        <li class="cat-item">
+                                            <a href="/">All Books</a>
+                                        </li>
+
+                                        {% for category in categories %}
+                                        <li class="cat-item"><a href="/?category={{category.id}}">{{category.name}}</a>
+                                             
+                                        {% endfor %}
+
+
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="header-phone ">
+                                <div class="icon">
+                                    <!-- <i class="fas fa-headphones-alt"></i> -->
+                                </div>
+                                <div class="text">
+                                    <!-- <p>Free Support 24/7</p>
+                                    <p class="font-weight-bold number">+01-202-555-0181</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-navigation flex-lg-right">
+                                <ul class="main-menu menu-right li-last-0">
+                                    
+                                    <li class="menu-item">
+                                        <a href="/home">Home </a>
+                                    </li>
+                                    <!-- Shop -->
+                                    <li class="menu-item">
+                                        <a href="/">All Books </a>
+                                        
+                                    </li>
+                                    <!-- Pages -->
+                                    <li class="menu-item">
+                                        <a href="/about">About Us </a>
+                                               
+                                    </li>
+                                    <!-- Blog -->
+                                    <li class="menu-item">
+                                        <a href="/feedback">Review </a>
+                                             
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/contact">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- -----------------------------mobile-------------------------- -->
+        
+         <!--Off Canvas Navigation End-->
+     <div class="sticky-init fixed-header common-sticky">
+         <div class="container d-none d-lg-block">
+             <div class="row align-items-center">
+                 <div class="col-lg-4">
+                     <!-- <a href="index.html" class="site-brand">
+                         <img src="{%static 'image/logo.png'%}" alt="">
+                     </a> -->
+                 </div>
+                 <div class="col-lg-8">
+                     <div class="main-navigation flex-lg-right">
+                         <ul class="main-menu menu-right ">
+                             <li class="menu-item">
+                                 <a href="javascript:void(0)">Home </a> 
+                                        
+                               
+                             </li>
+                             <!-- Shop -->
+                             <li class="menu-item">
+                                 <a href="javascript:void(0)">All books </a>
+                               
+                             </li>
+                             <!-- Pages -->
+                             <li class="menu-item ">
+                                 <a href="javascript:void(0)">Profile </a>
+                                   
+                             </li>
+                             <!-- Blog -->
+                             <li class="menu-item ">
+                                 <a href="javascript:void(0)">About us </i>
+                                     
+                             </li>
+                             <li class="menu-item">
+                                 <a href="contact.html">Contact</a>
+                             </li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+
+
+
+     {% block content %}
+
+     {% endblock %}
+
+
+
+
+
+
+     <footer class="site-footer">
+         
+         <div class="footer-bottom">
+             <div class="container">
+                 <div class="row justify-content-between  section-padding">
+                     <div class=" col-xl-3 col-lg-4 col-sm-6">
+                         <div class="single-footer pb--40">
+                             <div class="brand-footer footer-title">
+                                 <div class="footer-title">
+                                     <h3>About   </h3>
+                                 </div>
+                                 <!-- <img src="{%static 'img/flogo.png'%}" alt=""> -->
+                             </div>
+                             <div class="footer-contact">
+                                 <p><span class="label">Address:</span>
+                                     <span class="text">103 Silverstone Arcade,surat, Gujarat, india-395004</span></p>
+                                 <p><span class="label">Phone:</span><span class="text">  +91 1010101010</span></p>
+                                 <p><span class="label">Email:</span><span class="text">  suport@oldbookstall.com</span></p>
+                             </div>
+                         </div>
+                     </div>
+ 
+                     <div class=" col-xl-3 col-lg-2 col-sm-6">
+                         <div class="single-footer pb--40">
+                             <div class="footer-title">
+                                 <h3>Information</h3>
+                             </div>
+                             <ul class="footer-list normal-list">
+                            
+                                 <li><a href="/">All Books</a></li>
+                                 <li><a href="/feedback">Review</a></li>
+                           
+                             </ul>
+                         </div>
+                     </div>
+ 
+                     <div class=" col-xl-3 col-lg-2 col-sm-6">
+                         <div class="single-footer pb--40">
+                             <div class="footer-title">
+                                 <h3>Extras</h3>
+                             </div>
+                             <ul class="footer-list normal-list">
+                                
+                                 <li><a href="/about">About Us</a></li>
+                             
+                                 <li><a href="contact">Contact us</a></li>
+                         
+                             </ul>
+                         </div>
+                     </div>
+ 
+                     <div class=" col-xl-3 col-lg-4 col-sm-6">
+                         <!-- <div class="footer-title">
+                             <h3>Newsletter Subscribe</h3>
+                         </div>
+                         <div class="newsletter-form mb--30">
+                             <form action="https://demo.hasthemes.com/pustok-preview/pustok/php/mail.php">
+                                 <input type="email" class="form-control" placeholder="Enter Your Email Address Here...">
+                                 <button class="btn btn--primary w-100">Subscribe</button>
+                             </form>
+                         </div> -->
+                         <div class="social-block">
+                             <h3 class="title">STAY CONNECTED</h3>
+                             <ul class="social-list list-inline">
+                                 <li class="single-social facebook"><a href="https://www.facebook.com/"><i class="ion ion-social-facebook"></i></a>
+                                 </li>
+                                 <li class="single-social twitter"><a href="https://twitter.com/?lang=en"><i class="ion ion-social-twitter"></i></a></li>
+                                 <li class="single-social google"><a href="https://accounts.google.com/ServiceLogin/webreauth?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2Fb%2F1%2FAddMailService&followup=https%3A%2F%2Faccounts.google.com%2Fb%2F1%2FAddMailService&authuser=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i
+                                             class="ion ion-social-googleplus-outline"></i></a></li>
+                           
+                             </ul>
+                         </div>
+                     </div>
+                    
+ 
+                 </div>    
+                 <p class="copyright-text">Copyright © 2021 <a href="#" class="author">OLD BOOKS STALL</a>. All Right Reserved.
+                    <br>
+                    Design By Pruth's</p>
+            </div>
+             </div>
+ 
+         
+         </div>
+     </footer>
+     <!-- Use Minified Plugins Version For Fast Page Load -->
+     <script src="{%static 'js/plugins.js'%}"></script>
+     <script src="{%static 'js/ajax-mail.js'%}"></script>
+     <script src="{%static 'js/custom.js'%}"></script>
+     <!-- <script type="text/javascript" src="{%static 'js/cart.js'%}"></script> -->
+ </body>
+ 
+ 
+ <!-- Mirrored from demo.hasthemes.com/pustok-preview/pustok/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Aug 2020 16:11:58 GMT -->
+ </html>
